@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rock-paper-scissors
+spec:
+  rules:
+    - host: <minikube-ip>.nip.io   # Replace with Minikube's IP address
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rock-paper-scissors
+                port:
+                  number: 80
+
